@@ -1,0 +1,30 @@
+{
+  "name": "yaaif-vscode",
+  "displayName": "YAAIF Platform",
+  "description": "YAAIF tools and Admin UI handoffs for GitHub Copilot Chat in Visual Studio Code.",
+  "version": "0.1.0",
+  "publisher": "yaaif",
+  "license": "Apache-2.0",
+  "repository": { "type": "git", "url": "https://github.com/yaaif/vscode-plugin.git" },
+  "engines": { "vscode": "^1.102.0" },
+  "categories": ["AI", "Other"],
+  "activationEvents": ["onUri", "onCommand:yaaif.configureMcpBridge"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "yaaif.configureMcpBridge", "title": "YAAIF: Configure MCP Bridge" },
+      { "command": "yaaif.openCopilotChat", "title": "YAAIF: Open Copilot Chat" }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "check": "tsc --noEmit",
+    "package": "npm run build && npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/vscode": "^1.102.0",
+    "@vscode/vsce": "^3.6.0",
+    "typescript": "^5.9.0"
+  }
+}
