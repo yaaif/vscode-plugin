@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 
 const MCP_ENTRY = {
   command: "npx",
-  args: ["-y", "@yaaif/platform-mcp@1.3.4", "--client", "vscode"],
+  args: ["-y", "@yaaif/platform-mcp@1.3.5", "--client", "vscode"],
 };
 
 function handoffPrompt(uri: vscode.Uri): string | undefined {
