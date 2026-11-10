@@ -2,7 +2,7 @@
   "name": "yaaif-vscode",
   "displayName": "YAAIF Platform",
   "description": "YAAIF tools and Admin UI handoffs for GitHub Copilot Chat in Visual Studio Code.",
-  "version": "0.2.0",
+  "version": "1.7.0",
   "publisher": "yaaif",
   "license": "Apache-2.0",
   "repository": {
@@ -19,6 +19,7 @@
   "activationEvents": [
     "onUri",
     "onCommand:yaaif.configureMcpBridge",
+    "onCommand:yaaif.openWorkflow",
     "onCommand:yaaif.openGovernance"
   ],
   "main": "./dist/extension.js",
@@ -31,6 +32,10 @@
       {
         "command": "yaaif.openCopilotChat",
         "title": "YAAIF: Open Copilot Chat"
+      },
+      {
+        "command": "yaaif.openWorkflow",
+        "title": "YAAIF: Platform Workflow"
       },
       {
         "command": "yaaif.openGovernance",

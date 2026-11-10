@@ -1,0 +1,22 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  extension:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - name: Check release contract
+        run: |
+          node -e 'const fs=require("fs"); const c=JSON.parse(fs.readFileSync("plugin-contract.json")); const p=require("./package.json"); if(p.version!==c.pluginVersions.vscode) throw new Error("plugin version drift"); if(!fs.readFileSync("src/extension.ts","utf8").includes(c.mcpPackage)) throw new Error("MCP pin drift");'
